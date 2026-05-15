@@ -1,0 +1,18 @@
+@import "tailwinds";
+@custom-variant dark (&:where(.dark, .dark *));
+/*Chrome/Safari/Edge: autofill ignores background-color; inset shadow matches the row */
+.login-input:-webkit-autofill,
+.login-input:-webkit-autofill:hover,
+.login-input:-webkit-autofill:focus,
+.login-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 100px #fff inset;
+    -webkit-text-fill-color: #9ca3af;
+    transition: background-color 99999s ease-out 0s;
+}
+.dark .login-input:-webkit-autofill,
+.dark .login-input:-webkit-autofill:hover,
+.dark .login-input:-webkit-autofill:focus,
+.dark .login-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 100px #374151 inset;
+    -webkit-text-fill-color: #94b89f;
+}
