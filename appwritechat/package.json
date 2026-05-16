@@ -11,5 +11,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.0",
     "vite": "^8.0.12"
+  },
+  "dependencies": {
+    "appwrite": "^25.0.0"
   }
 }

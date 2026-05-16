@@ -1,4 +1,4 @@
-@import "tailwinds";
+@import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 /*Chrome/Safari/Edge: autofill ignores background-color; inset shadow matches the row */
 .login-input:-webkit-autofill,

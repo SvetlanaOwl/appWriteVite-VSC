@@ -1,5 +1,5 @@
-import { account  } from "./appwriteClient.js";
-import { uploadAvatar } from "./avatarUpload.js";
+import { account  } from "../appwrite/appwriteClient.js";
+/*import { uploadAvatar } from "./avatarUpload.js";*/
 
 //Function to handle user login
 export async function login() {
