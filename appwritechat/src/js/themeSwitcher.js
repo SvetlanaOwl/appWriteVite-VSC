@@ -5,10 +5,11 @@ export function themeSwitcher() {
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') {
         document.documentElement.classList.add('dark');
+        if (icon) icon.className = 'fa-regular fa-sun';
     } else if (saved === 'light') {
         document.documentElement.classList.remove('dark');
+        if (icon)icon.className = 'fa-regular fa-moon';
     } else {
-        // No saved preference → follow system
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
             if (icon) icon.className = 'fa-regular fa-sun';

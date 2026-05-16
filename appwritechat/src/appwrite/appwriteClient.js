@@ -1,6 +1,6 @@
 //appwriteClient.js
 import { Client, Account, Databases, Query, ID } from 'appwrite';// Ensure is available globally (from CDN)
-const client = new Client()
+export const client = new Client()
     .setEndpoint('https://fra.cloud.appwrite.io/v1')
     .setProject('69cc6d22001c93ee189a');
 //Menu table client setup
