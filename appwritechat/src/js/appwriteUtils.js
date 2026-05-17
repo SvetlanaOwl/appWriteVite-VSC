@@ -88,3 +88,20 @@ export async function getNicknameColor(defaultColor = '#60a5fa') {
         return defaultColor;
     }
 }
+
+//Function to handle user registration
+export async function register() {
+    const registerButton = document.getElementById('registerBtn');
+        registerButton.addEventListener("click", async () => {
+            const email = document.getElementById("regEmail").value;
+            const password = document.getElementById("regPassword").value;
+                try {
+                    const user = await account.create("unigue()", email, password);
+                    registerButton.disabled = true; //Disable the button to prevent multiple clicks
+                    window.location.href = "./index.html";
+                    console.log("User created:", user);
+                } catch(err) {
+                    console.log("Registration error:", err.message);
+                }
+        });
+}
