@@ -3,30 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/appwrite@23.0.0"></script>
-    <script src="./js/tailwind.config.js"></script>
-    
-</head>
+  </head>
 <!--<body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5]">-->
     <body class="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:from-gray-950 dark:to-gray-900"> <!-- Background gradient -->
     <div id="headerSection"></div> <!-- Header populated by headerV2.js -->
     <div id="profileSection"></div> <!-- Profile card populated by profile.js -->
     <div id="footerSection"></div> <!-- Footer populated by footer.js -->
-  </body>
-  <script type="module">
-    import { themeSwitcher } from './js/themeSwitcher.js';
-    import { createHeader } from './js/header.js';
-    import { createProfileCard } from './js/profile.js';
-    import { createFooter } from './js/footer.js';
-    import { updateAccountName } from './js/appwriteUtils.js';
-
-    createHeader();
-    themeSwitcher();
-    createProfileCard();
-    createFooter();
-    updateAccountName();
-  </script>
+  
+  <script type="module" src="../src/profileMain.js"></script>
+</body>
 </html>
