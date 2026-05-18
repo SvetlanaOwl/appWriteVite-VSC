@@ -1,4 +1,4 @@
-import { renderProfileData  } from "./menu.js";
+import { renderProfileData  } from "./menus.js";
 import { setAvatar } from "./js/appwriteUtils.js";
 
 export function createProfileCard() {

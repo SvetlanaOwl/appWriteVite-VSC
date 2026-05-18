@@ -1,7 +1,7 @@
-import { renderHeader } from './menu.js';
+import { renderHeader, burgerMenu } from './menus.js';
 import { initProfileMenu } from './profileMenu.js';
 import { logout } from './js/appwriteUtils.js';
-import { burgerMenu } from './burgerMenu.js';
+
 
 export function createHeader() {
     const headerSection = document.getElementById('headerSection');

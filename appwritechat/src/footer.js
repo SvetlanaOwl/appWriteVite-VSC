@@ -1,4 +1,4 @@
-import { loadFooterMenu } from "./menu.js";
+import { loadFooterMenu } from "./menus.js";
 
 export function createFooter() {
     const footerSection = document.getElementById('footerSection');
