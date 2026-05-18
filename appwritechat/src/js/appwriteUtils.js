@@ -96,7 +96,7 @@ export async function register() {
             const email = document.getElementById("regEmail").value;
             const password = document.getElementById("regPassword").value;
                 try {
-                    const user = await account.create("ID.unique()", email, password);
+                    const user = await account.create("unique()", email, password);
                     registerButton.disabled = true; //Disable the button to prevent multiple clicks
                     window.location.href = "./index.html";
                     console.log("User created:", user);
