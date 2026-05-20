@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5]
+             dark:bg-gradient-to-r dark:from-[#0f766e] dark:to-[#1e3a8a]">
+<div id="headerSection"></div> 
+  <!-- Sidebar -->
+<!--  <div class="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
+    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-gradient-to-br from-teal-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">A</div>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-800 dark:text-white tracking-tight">AdminHub</h1>
+          <p class="text-xs text-gray-500 dark:text-gray-400 -mt-1">Management</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex-1 px-4 py-6 space-y-1 overflow-y-auto g-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:bg-gradient-to-r dark:from-[#0f766e] dark:to-[#1e3a8a] ">
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400">
+        <i class="fa-solid fa-users w-5"></i>
+        <span>Users</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl">
+        <i class="fa-solid fa-chart-bar w-5"></i>
+        <span>Analytics</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl">
+        <i class="fa-solid fa-shield-halved w-5"></i>
+        <span>Security</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl">
+        <i class="fa-solid fa-gear w-5"></i>
+        <span>Settings</span>
+      </a>
+    </div> -->
+
+ <!--   <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex items-center gap-3 px-4 py-3 bg-gray-100 dark:bg-gray-700 rounded-2xl">
+        <div class="w-9 h-9 bg-gray-300 dark:bg-gray-600 rounded-full flex items-center justify-center text-lg">👤</div>
+        <div class="flex-1">
+          <p class="text-sm font-medium text-gray-800 dark:text-white">Admin User</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">admin@domain.com</p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+  <!-- Main Content -->
+ <!-- <div class="flex-1 flex flex-col"> -->
+    <!-- Top Navbar -->
+<!--    <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-8 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Admin Panel</h2>
+      </div>
+      
+      <div class="flex items-center gap-6">
+        <div class="relative">
+          <input type="text" placeholder="Search users..." 
+                 class="bg-gray-100 dark:bg-gray-700 border border-transparent focus:border-gray-300 dark:focus:border-gray-600 rounded-2xl py-2.5 pl-10 pr-4 w-80 text-sm outline-none">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-400"></i>
+        </div>
+
+        <button class="w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-2xl">
+          <i class="fa-solid fa-bell"></i>
+        </button>
+        
+        <div class="flex items-center gap-2">
+          <div class="text-right">
+            <p class="text-sm font-medium">John Doe</p>
+            <p class="text-xs text-green-500">● Online</p>
+          </div>
+          <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-white font-semibold">JD</div>
+        </div>
+      </div>
+    </nav> -->
+    <!--<div id="headerSection"></div> <!-- Header populated by headerV2.js --> 
+    <!-- Content Area -->
+    <div class="flex-1 p-8 overflow-auto">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-end mb-8">
+          <div>
+            <h3 class="text-3xl font-semibold text-gray-800 dark:text-white">All Users</h3>
+            <p class="text-gray-500 dark:text-gray-400">Manage and monitor platform users</p>
+          </div>
+          <button class="px-5 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-2xl font-medium flex items-center gap-2 hover:shadow-lg transition">
+            <i class="fa-solid fa-plus text-amber-300"></i>
+            <span class="text-gray-300">Add User</span>
+          </button>
+        </div>
+
+        <!-- User List Container -->
+        <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-md border border-gray-100 dark:border-gray-700 overflow-hidden">
+          <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between">
+            <div class="font-medium text-gray-700 dark:text-gray-300">Users (2 total)</div>
+            <div class="flex items-center gap-3">
+              <button class="px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-2xl font-medium text-sm flex items-center gap-2 hover:shadow-lg transition">
+                <i class="fa-solid fa-filter text-amber-300"></i>
+                <span>Filter</span>
+              </button>
+              <button class="px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-2xl font-medium text-sm flex items-center gap-2 hover:shadow-lg transition">
+                <i class="fa-solid fa-arrow-down-a-z text-amber-300"></i>
+                <span>Sort</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="userList" class="p-2 text-center text-gray-500 dark:text-gray-400">
+            Loading...
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <div id="footerSection"></div> <!-- Footer populated by footer.js -->
+  
+<script type="module" src = "../src/adminPanelMain.js"></script>
+
+</body>
+</html>
