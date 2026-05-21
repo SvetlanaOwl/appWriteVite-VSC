@@ -1,6 +1,6 @@
 import { renderHeader, burgerMenu } from './menus.js';
 import { initProfileMenu } from './profileMenu.js';
-import { logout } from './js/appwriteUtils.js';
+import { logout } from './appwriteUtils.js';
 
 
 export function createHeader() {
@@ -65,7 +65,7 @@ export function createHeader() {
                         <div id="profileToggle" class="flex items-center gap-3 cursor-pointer select-none">
                             <div class="w-9 h-9 rounded-2xl overflow-hidden border-2 border-white shadow-sm">
                                 <img id="profileImage"
-                                src="./img/wolf.jpg"
+                                src="../src/assets/owl.jpg"
                                 alt="Profile Picture"
                                 class="w-full h-full object-cover">
                             </div>
