@@ -1,4 +1,5 @@
 import { account  } from "../appwrite/appwriteClient.js";
+import { handleFirstLogin } from './new_login.js';
 /*import { uploadAvatar } from "./avatarUpload.js";*/
 
 //Function to handle user login
@@ -103,6 +104,7 @@ export async function register() {
                 console.log("User created:", user);
 
                 await account.createEmailPasswordSession(email, password);
+                await handleFirstLogin();
 
                 await account.updatePrefs({ //2. Добавляем роль user в пользовательские настройки
                 roles: "user"           // по умолчанию даём роль "user"
