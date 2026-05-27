@@ -1,0 +1,17 @@
+body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+}
+
+.chat-container {
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.25), rgba(116, 235, 213, 0.35)),
+        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+}
+
+#chat-input:empty:before {
+    content: attr(placeholder);
+    color: #6b7280; /* Tailwind gray-500 */
+    pointer-events: none;
+}

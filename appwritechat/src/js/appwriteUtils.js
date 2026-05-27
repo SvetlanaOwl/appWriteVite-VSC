@@ -92,14 +92,25 @@ export async function getNicknameColor(defaultColor = '#60a5fa') {
 //Function to handle user registration
 export async function register() {
   const registerButton = document.getElementById("registerBtn");
+
     registerButton.addEventListener("click", async () => {
         const email = document.getElementById("regEmail").value;
         const password = document.getElementById("regPassword").value;
+        const name = document.getElementById("regName").value;
+
             try {
-                const user = await account.create("unique()", email, password);
-                registerButton.disabled = true; // Disable the button to prevent multiple clicks
-                window.location.href = "./";
+                const user = await account.create("unique()", email, password, name); //1. Создаём нового пользователя
                 console.log("User created:", user);
+
+                await account.createEmailPasswordSession(email, password);
+
+                await account.updatePrefs({ //2. Добавляем роль user в пользовательские настройки
+                roles: "user"           // по умолчанию даём роль "user"
+            });
+
+                registerButton.disabled = true; // Disable the button to prevent multiple clicks
+                window.location.href = "./profile.html";
+                
             } catch (err) {
                 console.error("Registration error:", err.message);
               }
