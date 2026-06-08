@@ -9,7 +9,7 @@ export async function loadData() {
         return;
     }
     
-const tableHTML = `
+    /*const tableHTML = `
         <div class="overflow-x-auto">
             <table class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
                 <thead>
@@ -30,7 +30,9 @@ const tableHTML = `
                             <td class="px-6 py-4">${item.eye}</td>
                             <td class="px-6 py-4 font-medium">${item.age}</td>
                         </tr>
-                    `).join('')}
+                    `)
+                    .join('')
+                    }
                 </tbody>
             </table>
         </div>
@@ -38,17 +40,17 @@ const tableHTML = `
 
     container.innerHTML = tableHTML;
 }
-
-    
- /*    .map(
+*/    
+    container.innerHTML = data
+    .map(
       (item) =>`
-            div class="card">
-                <p><strong>Name:</strong>${item.name} ${item.lastName}</p>
-                <p><strong>Country:</strong>${item.country}</p>
-                <p><strong>Eye Color:</strong>${item.eye}</p>
-                <p><strong>Age:</strong>${item.age}</p>
+            <div class="card">
+                <p><strong>Name:</strong> ${item.name} ${item.lastName}</p>
+                <p><strong>Country:</strong> ${item.country}</p>
+                <p><strong>Eye Color:</strong> ${item.eye}</p>
+                <p><strong>Age:</strong> ${item.age}</p>
             </div>
         `
     )
     .join("");
-}*/
+}
