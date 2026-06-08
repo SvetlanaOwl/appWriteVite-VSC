@@ -1,6 +1,7 @@
-import { account  } from "../appwrite/appwriteClient.js";
+import { account, FORMCOL, databases, MDBID, ID } from '../appwrite/appwriteClient.js';
 import { handleFirstLogin } from './new_login.js';
-/*import { uploadAvatar } from "./avatarUpload.js";*/
+
+
 
 //Function to handle user login
 export async function login() {
@@ -117,4 +118,87 @@ export async function register() {
                 console.error("Registration error:", err.message);
               }
   });
+}
+
+/**
+ * Handles form submission and stores data in Appwrite.
+ * Expects form.html to have:
+ * #name, #last-name, #country, #eye, #age, #submit-btn
+ */
+
+export function initFormHandler() {
+  const submitBtn = document.getElementById("submit-btn");
+  if (!submitBtn) {
+    console.error("Submit button not found in DOM");
+    return;
+  }
+
+  submitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name")?.value.trim();
+    const lastName = document.getElementById("last-name")?.value.trim();
+    const country = document.getElementById("country")?.value.trim();
+    const eye = document.getElementById("eye")?.value.trim();
+    const age = document.getElementById("age")?.value.trim();
+
+    // Basic validation
+    if (!name || !lastName || !country || !eye || !age) {
+      console.error("All fields are required");
+      return;
+    }
+
+   try {
+      const doc = await databases.createDocument(
+        MDBID,                    // your database ID
+        FORMCOL,          // your collection ID
+        ID.unique(),
+        {
+          name,
+          lastName,
+          country,
+          eye,
+          age: Number(age)
+        } 
+      );
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Сохранение...";
+
+      alert("✅ Ваши данные успешно сохранены!");
+            
+            // Очищаем форму
+            document.getElementById("name").value = "";
+            document.getElementById("last-name").value = "";
+            document.getElementById("country").value = "";
+            document.getElementById("eye").value = "";
+            document.getElementById("age").value = "";
+
+      console.log("Form submitted successfully:", doc);
+      return doc;
+
+    } catch (err) {
+      console.error("Error submitting form:", err.message);
+    } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Жмяк";
+        }
+  });
+}
+
+/**
+ * Fetches all form submissions from Appwrite.
+ * Returns an array of documents.
+ */
+export async function getFormData() {
+    try {
+        const responce = await databases.listDocuments(
+            MDBID,
+            FORMCOL
+        );
+        return responce.documents; //array of docs
+    } catch (err) {
+        console.error("Error fetching form data:", err.message);
+        return[]; 
+    }
 }

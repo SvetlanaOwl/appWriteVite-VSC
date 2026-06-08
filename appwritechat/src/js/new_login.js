@@ -1,5 +1,5 @@
 import { account } from '../appwrite/appwriteClient.js';
-import { databases, Query, ID } from '../appwrite/appwriteClient.js';
+import { databases, Query, MDBID, USERSCOL, ID } from '../appwrite/appwriteClient.js';
 
 export async function handleFirstLogin() {
     // 1. Получаем текущего авторизованного пользователя
@@ -7,8 +7,8 @@ export async function handleFirstLogin() {
 
     // 2. Проверяем, существует ли пользователь в нашей кастомной коллекции users
     const existing = await databases.listDocuments(
-        DATABASE_ID,
-        USERS_COLLECTION_ID,
+        MDBID,
+        USERSCOL,
         [Query.equal("appwriteId", user.$id)]
     );
 
@@ -19,9 +19,9 @@ export async function handleFirstLogin() {
 
     // 3. Создаём новую запись пользователя
     const newUser = await databases.createDocument(
-        DATABASE_ID,
-        USERS_COLLECTION_ID,
-        "unique()", // авто-генерация ID
+        MDBID,
+        USERSCOL,
+        ID.unique(), // авто-генерация ID
         {
             appwriteId: user.$id,
             email: user.email,

@@ -1,7 +1,7 @@
 import '../css/utils.css'
-import { register } from '../js/appwriteUtils.js'
+import { initFormHandler } from '../js/appwriteUtils.js'
 import { themeSwitcher } from '../js/themeSwitcher.js'
 
 
 themeSwitcher();
-register();
+initFormHandler();

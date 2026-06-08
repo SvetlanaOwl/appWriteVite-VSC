@@ -11,4 +11,5 @@ export const account = new Account(client);
 export const databases = new Databases(client);
 export const query = Query;
 export { ID, Query };
-export const USERS_COLLECTION_ID = 'users'; //user collection ID
+export const USERSCOL = 'users'; //user collection ID
+export const FORMCOL = 'form';
