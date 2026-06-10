@@ -9,7 +9,7 @@ export async function loadData() {
         return;
     }
     
-    /*const tableHTML = `
+    const tableHTML = `
         <div class="overflow-x-auto">
             <table class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
                 <thead>
@@ -40,8 +40,8 @@ export async function loadData() {
 
     container.innerHTML = tableHTML;
 }
-*/    
-    container.innerHTML = data
+    
+/*    container.innerHTML = data
     .map(
       (item) =>`
             <div class="card">
@@ -53,4 +53,4 @@ export async function loadData() {
         `
     )
     .join("");
-}
+} */

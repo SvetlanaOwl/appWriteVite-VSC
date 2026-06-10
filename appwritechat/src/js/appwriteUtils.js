@@ -202,3 +202,33 @@ export async function getFormData() {
         return[]; 
     }
 }
+
+/**
+ * Protects a psge by  requiring the logged-in user to have the "admin" role.
+ * Redirects to login.html (or any page you choose) if unauthorized.
+ */
+/**
+ * Функция защиты страницы — требует, чтобы пользователь был авторизован
+ * И имел роль "admin". Если нет — перенаправляет на главную страницу.
+ */
+ export async function requireAdmin() {
+    try {
+        const user = await account.get();
+        const roles = user.prefs?.roles;
+        console.log("User roles:", roles);
+        //const isAdmin = 
+        //Array.isArray(roles) && role.includes("admin");
+
+        if (roles !== "admin") {
+            console.warn("Access denied: user is not an admin");
+            window.location.href = "/";
+            return false;
+        }
+         return true; // access granted
+    } catch (err) {
+        console.warn("User not logged in or cannot fetch account");
+        window.location.href = "/";
+        return false;
+
+    }
+ }
