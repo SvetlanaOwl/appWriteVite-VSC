@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Data</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        if (!localStorage.getItem("adminToken")) {
+            window.location.replace("/");
+        }
+    </script>
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-r from*[#74ebd5] to-[#ACB6E5] 
 dark:bg-gradient-to-r dark-from-[#0f766e] dark:to-[#1e3a8a]">

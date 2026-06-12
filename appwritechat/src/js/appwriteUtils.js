@@ -1,4 +1,4 @@
-import { account, FORMCOL, databases, MDBID, ID } from '../appwrite/appwriteClient.js';
+import { account, FORMCOL, databases, MDBID, ID, client } from '../appwrite/appwriteClient.js';
 import { handleFirstLogin } from './new_login.js';
 
 
@@ -212,19 +212,34 @@ export async function getFormData() {
  * И имел роль "admin". Если нет — перенаправляет на главную страницу.
  */
  export async function requireAdmin() {
+    
     try {
         const user = await account.get();
         const roles = user.prefs?.roles;
         console.log("User roles:", roles);
+        
         //const isAdmin = 
-        //Array.isArray(roles) && role.includes("admin");
+        //Array.isArray(roles) && roles.includes("admin");
 
         if (roles !== "admin") {
             console.warn("Access denied: user is not an admin");
             window.location.href = "/";
             return false;
         }
+        // --- Enable realtime role monitoring ---
+        client.subscribe(`account.${user.$id}`, (event) => {
+            const updated = event.payload;
+
+            const newRoles = updated.prefs?.roles;
+
+            if (newRoles !== "admin") {
+                console.warn("User lost admin role - redirecting");
+                window.location.href = "/";
+            }
+        });
+
          return true; // access granted
+
     } catch (err) {
         console.warn("User not logged in or cannot fetch account");
         window.location.href = "/";

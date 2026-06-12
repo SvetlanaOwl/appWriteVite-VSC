@@ -1,8 +1,11 @@
 import { getFormData } from "./appwriteUtils.js";
+import { client, databases, MDBID, FORMCOL } from "../appwrite/appwriteClient.js";
 
 export async function loadData() {
     const container = document.getElementById('form-data');
-    const data = await getFormData();
+    
+    async function render() {
+        const data = await getFormData();
 
     if (data.length === 0) {
         container.innerHTML = "<p> No submissions found.</p>";
@@ -54,3 +57,18 @@ export async function loadData() {
     )
     .join("");
 } */
+
+    //Inital load
+    await render();
+
+    //Enable realtime updates
+    client.subscribe(
+        `databases.${MDBID}.collections.${FORMCOL}.documents`,
+        (event) => {
+            console.log("Realtime event:", event.events);
+
+            //Re-render on ANY change
+            render();
+        }
+    );
+}

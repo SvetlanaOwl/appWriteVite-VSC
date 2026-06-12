@@ -1,5 +1,5 @@
 //appwriteClient.js
-import { Client, Account, Databases, Query, ID } from 'appwrite';// Ensure is available globally (from CDN)
+import { Client, Account, Databases, Query, ID, Storage } from 'appwrite';// Ensure is available globally (from CDN)
 export const client = new Client()
     .setEndpoint('https://fra.cloud.appwrite.io/v1')
     .setProject('69cc6d22001c93ee189a')
