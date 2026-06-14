@@ -55,6 +55,17 @@
       </p>
     </div>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const username = localStorage.getItem("username");
+            const loginMessage = document.getElementById("loginMessage");
+
+            if (username && loginMessage) {
+                loginMessage.textContent = `Hello, ${username}!`;
+            }
+        });
+    </script>
+
     <script type="module" src="/src/pages/main.js"></script>
 
 </body>

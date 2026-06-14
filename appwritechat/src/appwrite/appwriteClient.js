@@ -13,3 +13,6 @@ export const query = Query;
 export { ID, Query };
 export const USERSCOL = 'users'; //user collection ID
 export const FORMCOL = 'form';
+
+export const storage = new Storage(client);
+export const bucketID = "69f33786000323b50cbe";

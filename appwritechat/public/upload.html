@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload to Appwrite Bucket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] dark:bg-gradient-to-r dark:from-[#0f766e] dark:to-[#1e3a8a]">
+    <div class="bg-white dark:bg-gray-600 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4">Upload file to Bucket</h2>
+        <div class="mb-4 flex flex-col items-start">
+            <input type="file" id="fileInput"  accept="image/*" class="form-input border-gray-100 dark:bg-gray-600 text-gray-800 dark:text-white 
+            border border-gray-300 dark:border-gray-500 rounded-md focus:outline-none focus:ring-blue-500">
+            <img id="preview" src="img/imagePlaceholder.jpg" alt="Preview" class="mb-4 rounded-lg border border-gray-300 bg-gray-100 object-cover max-h-64 w-full">
+            <button id="uploadBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mt-3 rounded-md transition duration-300">Upload</button>
+            <p id="status"></p>
+        </div>
+    </div>
+    
+    <script type="module" src="../src/pages/upload.js"></script>
+
+</body>
+</html>

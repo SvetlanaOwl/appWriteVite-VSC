@@ -1,6 +1,5 @@
-import { account, FORMCOL, databases, MDBID, ID, client } from '../appwrite/appwriteClient.js';
+import { account, FORMCOL, databases, MDBID, ID, client, storage, bucketID } from '../appwrite/appwriteClient.js';
 import { handleFirstLogin } from './new_login.js';
-
 
 
 //Function to handle user login
@@ -12,6 +11,11 @@ export async function login() {
         try {
             const session = await account.createEmailPasswordSession(email, password);
             console.log("Logged in:", session);
+
+            const user = await account.get();
+            localStorage.setItem("username", user.name);
+            console.log("✅ Имя сохранено в localStorage:", user.name);
+
             window.location.href = "./profile.html";
         } catch (err) {
             console.error("Login error:", err.message);
@@ -245,5 +249,17 @@ export async function getFormData() {
         window.location.href = "/";
         return false;
 
-    }
+    } 
  }
+/**
+ * Upload a file to an Appwrite bucket
+ * @param {File} file - The file jbject from <input type="file">
+ * @param {string} busketId - Your Appwrite bucket ID
+ * @returns {Promise<object>} - Uploaded file metadata
+ */
+export async function uploadToBucket(file, bucketID) {
+    if (!file) throw new Error("No file provided");
+
+    const responce = await storage.createFile(bucketID, ID.unique(), file);
+    return responce;
+}
