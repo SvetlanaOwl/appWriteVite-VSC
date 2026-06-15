@@ -263,3 +263,22 @@ export async function uploadToBucket(file, bucketID) {
     const responce = await storage.createFile(bucketID, ID.unique(), file);
     return responce;
 }
+/**
+ * List all files in an Appwrite bucket
+ * @param {string} bucketId
+ * @returns {Promise<Array>} Array of file objects
+ */
+export async function listBucketFiles(bucketId) {
+    const  result = await storage.listFiles(bucketId);
+    return result.files; // Array of file metadata
+}
+
+/**
+ * Generate a preview URL for a file
+ * @param {string} bucketId
+ * @param {string} fileId
+ * @returns {sting} preview URL
+ */
+export function getFilePreview(bucketId, fileId) {
+    return storage.getFileView(bucketId, fileId);
+}
