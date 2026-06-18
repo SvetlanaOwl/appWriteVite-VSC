@@ -21,7 +21,7 @@ export function createProfileCard() {
                     <!-- Profile Picture -->
                     <div class="w-32 h-32 rounded-2xl overflow-hidden border-4 border-white shadow-lg dark:border-gray-500">
                     <img id="profilePic"
-                        src="../src/assets/owl.jpg"
+                        src="../src/assets/avatar_owl.jpg"
                         alt="Profile Picture"
                         class="w-full h-full object-cover hover:scale-105 transition-transform duretion-300 cursor-pointer">
                         <input type="file" id="avatarInput" accept="image/*" class="hidden">

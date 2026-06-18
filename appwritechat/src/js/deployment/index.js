@@ -11,21 +11,21 @@ export default async ({ req, res, log }) => {
 
     const bucketId = process.env.BUCKET_ID;
 
-    // Comma-separated prefixes to protect
-    const protectedPrefixes = (process.env.PROTECTED_PREFIXES || "avatar_")
+        // Comma-separated prefixes to protect
+    /*const protectedPrefixes = (process.env.PROTECTED_PREFIXES || "avatar_")
       .split(",")
       .map(p => p.trim());
 
     const now = Date.now();
     const cutoff24h = now - 24 * 60 * 60 * 1000; // 24 hours
-    const cutoff5h = now - 5 * 60 * 60 * 1000;   // 5 hours
+    const cutoff5h = now - 5 * 60 * 60 * 1000;   // 5 hours*/
 
     const files = await storage.listFiles(bucketId);
 
     let deleted = [];
     let skipped = [];
 
-    for (const file of files.files) {
+  /*  for (const file of files.files) {
       const name = file.name;
       const createdAt = new Date(file.$createdAt).getTime();
 
@@ -60,6 +60,24 @@ export default async ({ req, res, log }) => {
       deleted,
       skipped,
       protectedPrefixes
+    });*/
+
+    for (const file of files.files) {
+      try {
+        await storage.deleteFile(bucketId, file.$id);
+        deleted.push(file.name);
+      } catch (err) {
+        failed.push({ name: file.name, error: err.message });
+      }
+    }
+
+    return res.json({
+      status: "completed",
+      bucketId,
+      deletedCount: deleted.length,
+      failedCount: failed.length,
+      deleted,
+      failed
     });
 
   } catch (err) {
