@@ -16,3 +16,5 @@ export const FORMCOL = 'form';
 
 export const storage = new Storage(client);
 export const bucketID = "69f33786000323b50cbe";
+export const collectionId = 'one_text';
+export const collId = 'many_lines';

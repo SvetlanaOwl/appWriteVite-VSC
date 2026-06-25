@@ -282,3 +282,5 @@ export async function listBucketFiles(bucketId) {
 export function getFilePreview(bucketId, fileId) {
     return storage.getFileView(bucketId, fileId);
 }
+
+export { databases, MDBID };
